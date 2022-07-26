@@ -5,10 +5,10 @@ namespace Sample.Services
 {
     public class SettlementService : ISettlementService
     {
-        private static readonly SemaphoreSlim _dataSemaphore = new SemaphoreSlim(1);
-        private static readonly TimeOnly _firstSlot = new TimeOnly(9, 0);
-        private static readonly TimeOnly _lastSlot = new TimeOnly(16, 0);
-        private static readonly IList<SettlementData> _datastore = new List<SettlementData>();
+        private readonly SemaphoreSlim _dataSemaphore = new SemaphoreSlim(1);
+        private readonly TimeOnly _firstSlot = new TimeOnly(9, 0);
+        private readonly TimeOnly _lastSlot = new TimeOnly(16, 0);
+        private readonly IList<SettlementData> _datastore = new List<SettlementData>();
 
         public SettlementService()
         {
